@@ -1,0 +1,22 @@
+[profile.default]
+src = "src"
+out = "out"
+test = "test"
+script = "script"
+libs = ["lib", "node_modules"]
+solc_version = "0.8.24"
+evm_version = "cancun"
+optimizer = true
+optimizer_runs = 1_000_000
+via_ir = true
+# Deploy.s.sol / Acceptance.s.sol write their machine-readable ledgers to deployments/.
+# Acceptance.s.sol reads committed third-party account artifacts from fixtures/.
+fs_permissions = [
+    { access = "read-write", path = "./deployments" },
+    { access = "read", path = "./fixtures" },
+]
+
+[fmt]
+line_length = 110
+tab_width = 4
+bracket_spacing = false

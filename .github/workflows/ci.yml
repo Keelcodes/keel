@@ -1,0 +1,169 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      sandbox:
+        description: 'Bring up the full local AA stack (anvil + deployer + Alto + paymaster)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --no-frozen-lockfile
+
+      # Build before typecheck: workspace packages resolve each other through
+      # their emitted `dist` declarations, which only exist after a build.
+      - name: Build
+        run: pnpm build
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Test
+        run: pnpm test
+
+  contracts:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: contracts
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      # The contracts project imports the Rhinestone MSA, eth-infinitism
+      # EntryPoint, solady, etc. from `contracts/node_modules`, so the workspace
+      # install is a prerequisite for every Foundry step below.
+      - name: Install
+        run: pnpm install --no-frozen-lockfile
+        working-directory: .
+
+      - uses: foundry-rs/foundry-toolchain@v1
+
+      - name: Format
+        run: forge fmt --check
+
+      - name: Build
+        run: forge build --sizes
+
+      - name: Test
+        run: forge test -vv
+
+      # Explicit, named step for the adversarial catalogue. `forge test` above
+      # already runs these, but isolating them makes a red-team regression
+      # obvious in the CI log and pins the path the threat ids map to.
+      - name: Red team
+        run: forge test --match-path 'test/redteam/*' -vvv
+
+  # Sandbox: validates the compose file on every run (fast, daemon-free), and
+  # brings the full stack up only on manual dispatch. `docker compose config`
+  # needs no daemon and is guarded by a `command -v docker` check, so a runner
+  # without Docker cannot break CI. The opt-in bring-up is bounded by a timeout
+  # and a health poll, so it can never hang the workflow.
+  sandbox:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate compose config
+        run: |
+          if ! command -v docker >/dev/null 2>&1; then
+            echo "docker not available on this runner — skipping compose validation"
+            exit 0
+          fi
+          docker compose -f infra/docker-compose.yml config -q
+
+      - name: Bring up the stack (opt-in)
+        if: github.event_name == 'workflow_dispatch' && inputs.sandbox
+        timeout-minutes: 5
+        run: |
+          docker compose -f infra/docker-compose.yml up -d
+          healthy=0
+          for _ in $(seq 1 60); do
+            if curl -fsS -X POST http://127.0.0.1:8545 \
+              -H 'content-type: application/json' \
+              --data '{"jsonrpc":"2.0","id":1,"method":"eth_blockNumber","params":[]}' >/dev/null 2>&1; then
+              healthy=1
+              echo "anvil is up"
+              break
+            fi
+            sleep 2
+          done
+          if [ "$healthy" != "1" ]; then
+            echo "sandbox did not become healthy within the timeout"
+            docker compose -f infra/docker-compose.yml logs
+            exit 1
+          fi
+
+      - name: Tear down the stack (opt-in)
+        if: always() && github.event_name == 'workflow_dispatch' && inputs.sandbox
+        run: docker compose -f infra/docker-compose.yml down -v
+
+  # Proves the policy is enforced on-chain, not just in unit tests: real
+  # ERC-4337 UserOps through four independent ERC-7579 accounts (MSA,
+  # KeelMinimalAccount, ZeroDev Kernel, Rhinestone Safe7579) on a fresh local chain.
+  acceptance:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: contracts
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --no-frozen-lockfile
+        working-directory: .
+
+      - uses: foundry-rs/foundry-toolchain@v1
+
+      - name: On-chain acceptance
+        run: |
+          anvil --port 8545 --silent >/tmp/anvil.log 2>&1 &
+          ANVIL_PID=$!
+          trap "kill $ANVIL_PID" EXIT
+          for _ in $(seq 1 30); do
+            cast block-number --rpc-url http://127.0.0.1:8545 >/dev/null 2>&1 && break
+            sleep 1
+          done
+          forge script script/Deploy.s.sol:Deploy \
+            --rpc-url http://127.0.0.1:8545 --broadcast --non-interactive
+          forge script script/Acceptance.s.sol:Acceptance \
+            --rpc-url http://127.0.0.1:8545 --broadcast --non-interactive

@@ -1,0 +1,57 @@
+{
+  "name": "@keelcodes/mcp",
+  "version": "0.2.2",
+  "description": "Policy-aware MCP server for Keel: expose on-chain agent actions to a model, gated by the authorization policy before anything executes.",
+  "license": "Apache-2.0",
+  "homepage": "https://keel.codes",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keelcodes/keel.git",
+    "directory": "packages/mcp"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "keel-mcp": "./dist/bin.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@keelcodes/manifest": "workspace:*",
+    "@keelcodes/policy": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.16.11",
+    "vitest": "^2.1.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "ai-agent",
+    "policy",
+    "authorization",
+    "account-abstraction"
+  ]
+}

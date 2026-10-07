@@ -1,0 +1,46 @@
+name: Metrics
+
+# Refreshes the committed metrics dashboard (KEEL_PLAN §8 M5). Runs on the
+# default branch, where a scheduled workflow has write access to push the
+# refresh back. KEEL_GITHUB_REPO is taken from github.repository so the
+# dashboard tracks whichever repo the workflow runs in — no hard-coded org.
+on:
+  schedule:
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Collect
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          KEEL_GITHUB_REPO: ${{ github.repository }}
+          # Optional: point the on-chain scan at private RPCs. Unset falls back
+          # to the public endpoints in tools/metrics/lib.mjs (CHAINS).
+          KEEL_RPC_1: ${{ secrets.KEEL_RPC_1 }}
+          KEEL_RPC_56: ${{ secrets.KEEL_RPC_56 }}
+          KEEL_RPC_8453: ${{ secrets.KEEL_RPC_8453 }}
+        run: node tools/metrics/collect.mjs
+
+      - name: Commit
+        run: |
+          if git diff --quiet -- metrics; then
+            echo "dashboard unchanged"
+            exit 0
+          fi
+          git config user.name "keel-metrics[bot]"
+          git config user.email "metrics@keel.codes"
+          git add metrics
+          git commit -m "chore(metrics): refresh dashboard snapshot"
+          git push

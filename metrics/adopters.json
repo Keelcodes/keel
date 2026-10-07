@@ -1,0 +1,4 @@
+{
+  "note": "Integrating projects — maintained by hand (docs/internal/KEEL_GRANTS.md §6). The collector counts the entries below; an empty list is an honest zero, while a missing file reads as TBD. Add one entry per external integration, e.g. { \"name\": \"…\", \"url\": \"…\", \"since\": \"2026-10\" }.",
+  "adopters": []
+}

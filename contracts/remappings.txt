@@ -1,0 +1,5 @@
+forge-std/=lib/forge-std/src/
+sentinellist/=node_modules/@rhinestone/sentinellist/src/
+solady/=node_modules/solady/src/
+account-abstraction/=node_modules/account-abstraction/contracts/
+@openzeppelin/=node_modules/@openzeppelin/

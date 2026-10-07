@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "1.0.0",
+  "metadata": {
+    "protocol": "Broken Example",
+    "description": "A deliberately invalid manifest, used to show the validator's output.",
+    "category": "not-a-category",
+    "website": "https://example.test",
+    "author": "Example Labs",
+    "chainId": [],
+    "pimVersion": "1",
+    "validUntil": 1000000000
+  },
+  "contracts": {
+    "router": {
+      "address": "0x1111111111111111111111111111111111111111",
+      "lookup": "missingLookup",
+      "role": "not-a-role",
+      "description": "Has both address and lookup, plus a bad role."
+    }
+  },
+  "types": {},
+  "lookups": {
+    "dangling": {
+      "description": "Points at a contract that does not exist and has no validate operator.",
+      "contract": "absent",
+      "function": "read",
+      "args": [],
+      "returns": "uint256",
+      "selectCriterion": "nope",
+      "validate": [{ "field": "returns" }]
+    }
+  },
+  "calculations": {
+    "bad": { "description": "Missing formula." }
+  },
+  "intents": {},
+  "ui": {},
+  "signatures": []
+}

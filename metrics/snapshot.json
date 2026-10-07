@@ -1,0 +1,295 @@
+{
+  "generatedAt": "2026-10-07T06:53:14.003Z",
+  "repo": "Keelcodes/keel",
+  "metrics": [
+    {
+      "id": "github.stars",
+      "label": "GitHub stars",
+      "value": 0,
+      "source": "GitHub API · /repos",
+      "frequency": "daily",
+      "display": "0",
+      "target": "TBD"
+    },
+    {
+      "id": "github.forks",
+      "label": "GitHub forks",
+      "value": 0,
+      "source": "GitHub API · /repos",
+      "frequency": "daily",
+      "display": "0",
+      "target": "TBD"
+    },
+    {
+      "id": "github.watchers",
+      "label": "GitHub watchers",
+      "value": 0,
+      "source": "GitHub API · /repos",
+      "frequency": "daily",
+      "display": "0",
+      "target": "TBD"
+    },
+    {
+      "id": "github.contributors",
+      "label": "Contributors",
+      "value": 1,
+      "source": "GitHub API · /contributors",
+      "frequency": "weekly",
+      "display": "1",
+      "target": "TBD"
+    },
+    {
+      "id": "github.merged_prs",
+      "label": "Merged pull requests",
+      "value": 0,
+      "source": "GitHub API · /search/issues",
+      "frequency": "weekly",
+      "display": "0",
+      "target": "TBD"
+    },
+    {
+      "id": "github.open_issues",
+      "label": "Open issues",
+      "value": 0,
+      "source": "GitHub API · /search/issues",
+      "frequency": "weekly",
+      "display": "0",
+      "target": "TBD"
+    },
+    {
+      "id": "npm.downloads",
+      "label": "npm weekly downloads",
+      "value": null,
+      "source": "npm registry API",
+      "frequency": "weekly",
+      "display": "TBD",
+      "target": "TBD"
+    },
+    {
+      "id": "docs.visits",
+      "label": "Docs / site visits",
+      "value": null,
+      "source": "site analytics",
+      "frequency": "weekly",
+      "display": "TBD",
+      "target": "TBD"
+    },
+    {
+      "id": "settlement.intents",
+      "label": "Settlement intents",
+      "value": null,
+      "source": "Keel API · /telemetry",
+      "frequency": "daily",
+      "display": "TBD",
+      "target": "TBD"
+    },
+    {
+      "id": "conformance.runs",
+      "label": "Conformance suite runs",
+      "value": null,
+      "source": "Keel API · /telemetry",
+      "frequency": "weekly",
+      "display": "TBD",
+      "target": "TBD"
+    },
+    {
+      "id": "adopters",
+      "label": "Integrating projects",
+      "value": 0,
+      "source": "maintained list · metrics/adopters.json",
+      "frequency": "monthly",
+      "display": "0",
+      "target": "TBD"
+    },
+    {
+      "id": "chain.accounts.bsc",
+      "label": "Keel accounts (BSC)",
+      "value": 4,
+      "source": "onchain · KeelPolicyHook SessionInstalled · BSC",
+      "frequency": "daily",
+      "display": "4",
+      "target": "TBD"
+    },
+    {
+      "id": "chain.userops.bsc",
+      "label": "UserOps (BSC)",
+      "value": 8,
+      "source": "onchain · EntryPoint UserOperationEvent · BSC",
+      "frequency": "daily",
+      "display": "8",
+      "target": "TBD"
+    },
+    {
+      "id": "chain.session_installs.bsc",
+      "label": "Session installs (BSC)",
+      "value": 4,
+      "source": "onchain · KeelPolicyHook SessionInstalled · BSC",
+      "frequency": "daily",
+      "display": "4",
+      "target": "TBD"
+    },
+    {
+      "id": "chain.accounts.base",
+      "label": "Keel accounts (Base)",
+      "value": 7,
+      "source": "onchain · KeelPolicyHook SessionInstalled · Base",
+      "frequency": "daily",
+      "display": "7",
+      "target": "TBD"
+    },
+    {
+      "id": "chain.userops.base",
+      "label": "UserOps (Base)",
+      "value": 14,
+      "source": "onchain · EntryPoint UserOperationEvent · Base",
+      "frequency": "daily",
+      "display": "14",
+      "target": "TBD"
+    },
+    {
+      "id": "chain.session_installs.base",
+      "label": "Session installs (Base)",
+      "value": 7,
+      "source": "onchain · KeelPolicyHook SessionInstalled · Base",
+      "frequency": "daily",
+      "display": "7",
+      "target": "TBD"
+    },
+    {
+      "id": "chain.accounts.eth",
+      "label": "Keel accounts (ETH)",
+      "value": 7,
+      "source": "onchain · KeelPolicyHook SessionInstalled · ETH",
+      "frequency": "daily",
+      "display": "7",
+      "target": "TBD"
+    },
+    {
+      "id": "chain.userops.eth",
+      "label": "UserOps (ETH)",
+      "value": 14,
+      "source": "onchain · EntryPoint UserOperationEvent · ETH",
+      "frequency": "daily",
+      "display": "14",
+      "target": "TBD"
+    },
+    {
+      "id": "chain.session_installs.eth",
+      "label": "Session installs (ETH)",
+      "value": 7,
+      "source": "onchain · KeelPolicyHook SessionInstalled · ETH",
+      "frequency": "daily",
+      "display": "7",
+      "target": "TBD"
+    }
+  ],
+  "packages": [
+    {
+      "name": "@keelcodes/adapters",
+      "weeklyDownloads": null
+    },
+    {
+      "name": "@keelcodes/cli",
+      "weeklyDownloads": null
+    },
+    {
+      "name": "@keelcodes/conformance",
+      "weeklyDownloads": null
+    },
+    {
+      "name": "@keelcodes/manifest",
+      "weeklyDownloads": null
+    },
+    {
+      "name": "@keelcodes/mcp",
+      "weeklyDownloads": null
+    },
+    {
+      "name": "@keelcodes/migrate",
+      "weeklyDownloads": null
+    },
+    {
+      "name": "@keelcodes/policy",
+      "weeklyDownloads": null
+    },
+    {
+      "name": "@keelcodes/self-host",
+      "weeklyDownloads": null
+    },
+    {
+      "name": "@keelcodes/settlement",
+      "weeklyDownloads": null
+    }
+  ],
+  "chains": [
+    {
+      "id": 56,
+      "key": "bsc",
+      "name": "BSC",
+      "cursorBlock": 126019448,
+      "accounts": [
+        "0xc0d29908ed9cc8a18d9013ceed2da3f6e8033794",
+        "0xc0f277f28f599d533eee6c8160389656f1da09d3",
+        "0xcb3264db84fcfa00058d83624b57ca936ddb0695",
+        "0xea58e9eb347f43f8b237ecf84f55240678dcdd00"
+      ],
+      "installs": 4,
+      "userops": 8
+    },
+    {
+      "id": 8453,
+      "key": "base",
+      "name": "Base",
+      "cursorBlock": 52283316,
+      "accounts": [
+        "0x2a7d8fcd91eef1820085e4755e710aa605cc0ebc",
+        "0x4f69f6a137b59f64aebbee6c35ef179ed9c3b685",
+        "0x86210e4a74293aff1c7e770e70867ff9ea51f377",
+        "0xb8b3df642dc5b9ba10fd32d16e8e39fdf6c63e59",
+        "0xbf5131662a4e1359f78a1ab212db3f4a49ac8fa2",
+        "0xefcadcdb0bccbc5dd5eca086521b1b1e726a1813",
+        "0xf1f88a442a3978f1a3fcf04c9cb729b82ef697d2"
+      ],
+      "installs": 7,
+      "userops": 14
+    },
+    {
+      "id": 1,
+      "key": "eth",
+      "name": "ETH",
+      "cursorBlock": 26138830,
+      "accounts": [
+        "0x24ca01a120bb6a81bb859d7f26583e7d835792bb",
+        "0x4d123241a467e3f12f9d4a17be3304210c115c98",
+        "0x5c256b63898d845e20de793b20a296c08517f314",
+        "0x709ff2b61975efdc7e9da1d81634088c02606fba",
+        "0x800147305718051d850a617e2ade2ec7a93bc4bf",
+        "0xba2119b2e95b2d65fe364f9227840ee1835ebe3f",
+        "0xe834b45662940e40a5e5587bb6e5b2b93116f47b"
+      ],
+      "installs": 7,
+      "userops": 14
+    }
+  ],
+  "pending": [],
+  "badges": [
+    {
+      "file": "stars.svg",
+      "label": "stars",
+      "value": "0",
+      "color": "#4c1"
+    },
+    {
+      "file": "contributors.svg",
+      "label": "contributors",
+      "value": "1",
+      "color": "#4c1"
+    },
+    {
+      "file": "npm-downloads.svg",
+      "label": "npm / week",
+      "value": "TBD",
+      "color": "#007ec6"
+    }
+  ]
+}

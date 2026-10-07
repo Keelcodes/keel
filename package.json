@@ -1,0 +1,42 @@
+{
+  "name": "keel",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Keel — open infrastructure for onchain agent accounts, authorization and payments",
+  "license": "Apache-2.0",
+  "homepage": "https://keel.codes",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keelcodes/keel.git"
+  },
+  "bugs": {
+    "url": "https://github.com/keelcodes/keel/issues"
+  },
+  "packageManager": "pnpm@9.12.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  },
+  "scripts": {
+    "build": "pnpm -r build",
+    "test": "pnpm -r test && node --test \"tools/metrics/*.test.mjs\"",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "pnpm -r lint",
+    "clean": "pnpm -r clean",
+    "metrics": "node tools/metrics/collect.mjs",
+    "sandbox": "docker compose -f infra/docker-compose.yml up",
+    "redteam": "pnpm --filter @keelcodes/conformance build && pnpm --filter @keelcodes/conformance redteam"
+  },
+  "keywords": [
+    "erc-4337",
+    "erc-7579",
+    "erc-7710",
+    "account-abstraction",
+    "agent",
+    "x402",
+    "payments",
+    "session-keys"
+  ]
+}

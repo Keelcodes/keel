@@ -1,0 +1,96 @@
+# Keel — self-host reference AA stack
+#
+#   docker compose -f infra/docker-compose.yml up
+#
+# Brings up a complete local ERC-4337 stack with no hosted provider in the loop:
+#
+#   anvil              chain 31337, Foundry's deterministic dev accounts
+#   contract-deployer  one-shot: deploys EntryPoint + the account factories
+#   bundler (Alto)     ERC-4337 bundler        → http://127.0.0.1:4337
+#   paymaster          ERC-7677 paymaster      → http://127.0.0.1:3000
+#   api                console backend         → http://127.0.0.1:8080
+#
+# Every key below is a public, well-known development key. Never reuse any of
+# them off a local chain.
+#
+# This file is the deployable half of the reference stack; the typed half (port
+# model, endpoint derivation, readiness probes) lives in `packages/self-host`,
+# and the two are asserted against each other in that package's tests.
+#
+# Images are third-party. Alto and the mock services are published by Pimlico;
+# pin them to a digest before using this anywhere but a sandbox.
+name: keel-self-host
+
+services:
+  anvil:
+    image: ghcr.io/foundry-rs/foundry:latest
+    entrypoint: ["anvil", "--host", "0.0.0.0", "--block-time", "1", "--hardfork", "prague"]
+    ports:
+      - "8545:8545"
+    healthcheck:
+      test: ["CMD-SHELL", "cast rpc web3_clientVersion | grep -c anvil > /dev/null"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 5s
+    restart: unless-stopped
+
+  # One-shot: deploy the EntryPoint and the Kernel / Nexus / Safe7579 factories,
+  # then exit. Everything downstream waits for it to complete successfully.
+  contract-deployer:
+    image: ghcr.io/pimlicolabs/mock-contract-deployer:main
+    environment:
+      - ANVIL_RPC=http://anvil:8545
+    depends_on:
+      anvil:
+        condition: service_healthy
+    restart: "no"
+
+  bundler:
+    image: ghcr.io/pimlicolabs/alto:latest
+    entrypoint: ["node", "src/lib/cli/alto.js", "run", "--config", "/app/alto-config.json"]
+    ports:
+      - "4337:4337"
+    volumes:
+      - ./alto-config.json:/app/alto-config.json:ro
+    depends_on:
+      anvil:
+        condition: service_healthy
+      contract-deployer:
+        condition: service_completed_successfully
+    restart: unless-stopped
+
+  # ERC-7677 paymaster service. The mock forwards every bundler method to the
+  # bundler, so it doubles as a drop-in bundler URL — exactly how a hosted
+  # provider exposes one URL for both.
+  paymaster:
+    image: ghcr.io/pimlicolabs/mock-verifying-paymaster:main
+    environment:
+      - ALTO_RPC=http://bundler:4337
+      - ANVIL_RPC=http://anvil:8545
+    ports:
+      - "3000:3000"
+    depends_on:
+      anvil:
+        condition: service_healthy
+      contract-deployer:
+        condition: service_completed_successfully
+    restart: unless-stopped
+
+  # Console backend: the session index and settlement ledger the browser cannot
+  # read from the chain. Built from apps/api — zero dependencies, no install.
+  api:
+    build:
+      context: ../apps/api
+    environment:
+      - KEEL_API_PORT=8080
+      - KEEL_API_STORE=/data/api-store.json
+      - KEEL_API_ORIGIN=http://localhost:5173
+    ports:
+      - "8080:8080"
+    volumes:
+      - api-data:/data
+    restart: unless-stopped
+
+volumes:
+  api-data:

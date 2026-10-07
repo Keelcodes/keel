@@ -1,0 +1,61 @@
+{
+  "name": "@keelcodes/cli",
+  "version": "0.1.0",
+  "description": "Keel command line: validate a policy and dry-run a call, route a session to its module generation, and run conformance suites against a live chain.",
+  "license": "Apache-2.0",
+  "homepage": "https://keel.codes",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keelcodes/keel.git",
+    "directory": "cli"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "keel": "./dist/bin.js",
+    "kc": "./dist/bin.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@keelcodes/conformance": "workspace:*",
+    "@keelcodes/migrate": "workspace:*",
+    "@keelcodes/policy": "workspace:*",
+    "viem": "^2.21.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.16.11",
+    "vitest": "^2.1.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "cli",
+    "keel",
+    "erc-7579",
+    "conformance",
+    "policy",
+    "account-abstraction",
+    "agent"
+  ]
+}

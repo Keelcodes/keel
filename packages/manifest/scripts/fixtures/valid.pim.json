@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "1.0.0",
+  "metadata": {
+    "protocol": "Example DEX",
+    "description": "A minimal example protocol used to exercise the ERC-8313 validator.",
+    "category": "dex",
+    "website": "https://example.test",
+    "author": "Example Labs",
+    "chainId": [1, 8453],
+    "pimVersion": "1.0.0",
+    "validFrom": 1700000000,
+    "validUntil": 2000000000
+  },
+  "contracts": {
+    "router": {
+      "address": "0x1111111111111111111111111111111111111111",
+      "role": "router",
+      "description": "Swap router."
+    },
+    "factory": {
+      "address": "0x2222222222222222222222222222222222222222",
+      "role": "factory",
+      "description": "Pool factory."
+    }
+  },
+  "types": {
+    "Quote": {
+      "kind": "tuple",
+      "description": "A quote returned by the quoter.",
+      "fields": {
+        "amountOut": { "type": "uint256" },
+        "gasEstimate": { "type": "uint256", "unit": "gas" }
+      }
+    }
+  },
+  "lookups": {
+    "getPool": {
+      "description": "Resolve a pool address for a pair and fee tier.",
+      "contract": "factory",
+      "function": "getPool",
+      "args": ["{{tokenIn}}", "{{tokenOut}}", "{{fee}}"],
+      "iterate": { "fee": [500, 3000] },
+      "filter": { "notEqual": "0x0000000000000000000000000000000000000000" },
+      "select": "all",
+      "returns": "address"
+    }
+  },
+  "calculations": {
+    "deadline": {
+      "description": "Deadline 20 minutes from now.",
+      "formula": { "set": "block.timestamp", "add": "1200" },
+      "inputs": ["block.timestamp"],
+      "outputUnit": "unix_timestamp",
+      "precision": "integer"
+    }
+  },
+  "intents": {
+    "swap": {
+      "description": "Swap an exact input amount for a minimum output.",
+      "requiredInputs": ["tokenIn", "tokenOut", "amountIn"],
+      "optionalInputs": ["fee"],
+      "steps": [
+        { "id": 1, "action": "lookup", "lookup": "getPool", "description": "Find the pool.", "storeAs": "pool" },
+        { "id": 2, "action": "calculate", "description": "Compute the deadline.", "storeAs": "deadline" },
+        {
+          "id": 3,
+          "action": "buildTransaction",
+          "description": "Submit the swap.",
+          "contract": "router",
+          "function": "exactInputSingle",
+          "args": {
+            "tokenIn": "{{tokenIn}}",
+            "tokenOut": "{{tokenOut}}",
+            "amountIn": "{{amountIn}}",
+            "deadline": "{{deadline}}"
+          }
+        }
+      ]
+    }
+  },
+  "ui": {
+    "labels": { "tokenIn": "You pay", "tokenOut": "You receive", "amountIn": "Amount" },
+    "intentDescriptions": { "swap": "Swap {{amountIn}} {{tokenIn}} for {{tokenOut}}." }
+  },
+  "signatures": []
+}

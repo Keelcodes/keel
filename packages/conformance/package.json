@@ -1,0 +1,55 @@
+{
+  "name": "@keelcodes/conformance",
+  "version": "0.1.0",
+  "description": "Cross-ecosystem conformance and security suite for ERC-7579 / 7710 / 7715 / 8004 agent accounts.",
+  "license": "Apache-2.0",
+  "homepage": "https://keel.codes",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keelcodes/keel.git",
+    "directory": "packages/conformance"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "redteam": "node scripts/redteam-report.mjs",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "viem": "^2.21.0"
+  },
+  "devDependencies": {
+    "vitest": "^2.1.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "erc-7579",
+    "erc-7710",
+    "erc-7715",
+    "erc-8004",
+    "conformance",
+    "account-abstraction",
+    "agent",
+    "security"
+  ]
+}

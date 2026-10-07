@@ -1,0 +1,21 @@
+{
+  "name": "@keelcodes/contracts",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Keel ERC-7579 policy hook plus an end-to-end on-chain acceptance harness (Rhinestone MSA + eth-infinitism EntryPoint)",
+  "license": "Apache-2.0",
+  "homepage": "https://keel.codes",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keelcodes/keel.git"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.0.0",
+    "@rhinestone/sentinellist": "github:rhinestonewtf/sentinellist#e722c5cc68c570d535bc3c9f85b3ce90cdc38807",
+    "account-abstraction": "github:eth-infinitism/account-abstraction#c6f34e43bbfd1a224c066d7562e64982663fc860",
+    "ds-test": "github:dapphub/ds-test#e282159d5170298eb2455a6c05280ab5a73a4ef0",
+    "erc7579-implementation": "0.3.1",
+    "forge-std": "github:foundry-rs/forge-std#b93cf4bc34ff214c099dc970b153f85ade8c9f66",
+    "solady": "github:vectorized/solady#717c0a860a83dc9a1520d32384577aec51cecd84"
+  }
+}

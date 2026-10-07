@@ -1,0 +1,55 @@
+{
+  "name": "@keelcodes/adapters",
+  "version": "0.1.1",
+  "description": "Thin account, bundler and paymaster adapters that expose Kernel, Nexus and Safe7579 behind a single ERC-7579 interface.",
+  "license": "Apache-2.0",
+  "homepage": "https://keel.codes",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keelcodes/keel.git",
+    "directory": "packages/adapters"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "fork-drill": "node scripts/fork-drill.mjs",
+    "migration-drill": "node scripts/migration-drill.mjs",
+    "probe": "node scripts/probe.mjs",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "viem": "^2.21.0"
+  },
+  "devDependencies": {
+    "vitest": "^2.1.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "erc-4337",
+    "erc-7579",
+    "kernel",
+    "nexus",
+    "safe7579",
+    "account-abstraction"
+  ]
+}

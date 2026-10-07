@@ -1,0 +1,50 @@
+{
+  "name": "@keelcodes/self-host",
+  "version": "0.1.0",
+  "description": "Reference self-host stack for Keel: the model, endpoints and readiness probes for a local anvil + bundler + paymaster sandbox.",
+  "license": "Apache-2.0",
+  "homepage": "https://keel.codes",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keelcodes/keel.git",
+    "directory": "packages/self-host"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "vitest": "^2.1.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "erc-4337",
+    "account-abstraction",
+    "bundler",
+    "paymaster",
+    "anvil",
+    "self-host",
+    "docker-compose"
+  ]
+}

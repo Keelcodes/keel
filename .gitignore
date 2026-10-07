@@ -1,0 +1,33 @@
+node_modules/
+dist/
+build/
+coverage/
+*.tsbuildinfo
+
+# env
+.env
+.env.*
+!.env.example
+# public build-time config for the production console build
+!apps/console/.env.production
+
+# logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# caches
+.cache/
+.pnpm-store/
+.turbo/
+
+# foundry (contracts/)
+contracts/out/
+contracts/cache/
+contracts/broadcast/
+
+# editors / os
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
