@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-07T06:53:14.003Z",
+  "generatedAt": "2026-10-08T03:32:07.332Z",
   "repo": "Keelcodes/keel",
   "metrics": [
     {
@@ -257,7 +257,7 @@
       "id": 1,
       "key": "eth",
       "name": "ETH",
-      "cursorBlock": 26138830,
+      "cursorBlock": 26144999,
       "accounts": [
         "0x24ca01a120bb6a81bb859d7f26583e7d835792bb",
         "0x4d123241a467e3f12f9d4a17be3304210c115c98",
