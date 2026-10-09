@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-08T03:32:07.332Z",
+  "generatedAt": "2026-10-09T03:32:19.286Z",
   "repo": "Keelcodes/keel",
   "metrics": [
     {
@@ -32,10 +32,10 @@
     {
       "id": "github.contributors",
       "label": "Contributors",
-      "value": 1,
+      "value": 2,
       "source": "GitHub API · /contributors",
       "frequency": "weekly",
-      "display": "1",
+      "display": "2",
       "target": "TBD"
     },
     {
@@ -59,10 +59,10 @@
     {
       "id": "npm.downloads",
       "label": "npm weekly downloads",
-      "value": null,
+      "value": 839,
       "source": "npm registry API",
       "frequency": "weekly",
-      "display": "TBD",
+      "display": "839",
       "target": "TBD"
     },
     {
@@ -186,39 +186,39 @@
   "packages": [
     {
       "name": "@keelcodes/adapters",
-      "weeklyDownloads": null
+      "weeklyDownloads": 200
     },
     {
       "name": "@keelcodes/cli",
-      "weeklyDownloads": null
+      "weeklyDownloads": 14
     },
     {
       "name": "@keelcodes/conformance",
-      "weeklyDownloads": null
+      "weeklyDownloads": 14
     },
     {
       "name": "@keelcodes/manifest",
-      "weeklyDownloads": null
+      "weeklyDownloads": 44
     },
     {
       "name": "@keelcodes/mcp",
-      "weeklyDownloads": null
+      "weeklyDownloads": 475
     },
     {
       "name": "@keelcodes/migrate",
-      "weeklyDownloads": null
+      "weeklyDownloads": 15
     },
     {
       "name": "@keelcodes/policy",
-      "weeklyDownloads": null
+      "weeklyDownloads": 48
     },
     {
       "name": "@keelcodes/self-host",
-      "weeklyDownloads": null
+      "weeklyDownloads": 18
     },
     {
       "name": "@keelcodes/settlement",
-      "weeklyDownloads": null
+      "weeklyDownloads": 11
     }
   ],
   "chains": [
@@ -257,7 +257,7 @@
       "id": 1,
       "key": "eth",
       "name": "ETH",
-      "cursorBlock": 26144999,
+      "cursorBlock": 26152169,
       "accounts": [
         "0x24ca01a120bb6a81bb859d7f26583e7d835792bb",
         "0x4d123241a467e3f12f9d4a17be3304210c115c98",
@@ -282,13 +282,13 @@
     {
       "file": "contributors.svg",
       "label": "contributors",
-      "value": "1",
+      "value": "2",
       "color": "#4c1"
     },
     {
       "file": "npm-downloads.svg",
       "label": "npm / week",
-      "value": "TBD",
+      "value": "839",
       "color": "#007ec6"
     }
   ]
