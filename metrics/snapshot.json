@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T03:32:19.286Z",
+  "generatedAt": "2026-10-10T03:31:14.874Z",
   "repo": "Keelcodes/keel",
   "metrics": [
     {
@@ -59,10 +59,10 @@
     {
       "id": "npm.downloads",
       "label": "npm weekly downloads",
-      "value": 839,
+      "value": 971,
       "source": "npm registry API",
       "frequency": "weekly",
-      "display": "839",
+      "display": "971",
       "target": "TBD"
     },
     {
@@ -186,39 +186,39 @@
   "packages": [
     {
       "name": "@keelcodes/adapters",
-      "weeklyDownloads": 200
+      "weeklyDownloads": 232
     },
     {
       "name": "@keelcodes/cli",
-      "weeklyDownloads": 14
+      "weeklyDownloads": 19
     },
     {
       "name": "@keelcodes/conformance",
-      "weeklyDownloads": 14
-    },
-    {
-      "name": "@keelcodes/manifest",
-      "weeklyDownloads": 44
-    },
-    {
-      "name": "@keelcodes/mcp",
-      "weeklyDownloads": 475
-    },
-    {
-      "name": "@keelcodes/migrate",
-      "weeklyDownloads": 15
-    },
-    {
-      "name": "@keelcodes/policy",
-      "weeklyDownloads": 48
-    },
-    {
-      "name": "@keelcodes/self-host",
       "weeklyDownloads": 18
     },
     {
+      "name": "@keelcodes/manifest",
+      "weeklyDownloads": 55
+    },
+    {
+      "name": "@keelcodes/mcp",
+      "weeklyDownloads": 523
+    },
+    {
+      "name": "@keelcodes/migrate",
+      "weeklyDownloads": 19
+    },
+    {
+      "name": "@keelcodes/policy",
+      "weeklyDownloads": 60
+    },
+    {
+      "name": "@keelcodes/self-host",
+      "weeklyDownloads": 29
+    },
+    {
       "name": "@keelcodes/settlement",
-      "weeklyDownloads": 11
+      "weeklyDownloads": 16
     }
   ],
   "chains": [
@@ -257,7 +257,7 @@
       "id": 1,
       "key": "eth",
       "name": "ETH",
-      "cursorBlock": 26152169,
+      "cursorBlock": 26159344,
       "accounts": [
         "0x24ca01a120bb6a81bb859d7f26583e7d835792bb",
         "0x4d123241a467e3f12f9d4a17be3304210c115c98",
@@ -288,7 +288,7 @@
     {
       "file": "npm-downloads.svg",
       "label": "npm / week",
-      "value": "839",
+      "value": "971",
       "color": "#007ec6"
     }
   ]
