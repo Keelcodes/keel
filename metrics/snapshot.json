@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-10T03:31:14.874Z",
+  "generatedAt": "2026-10-11T03:32:15.851Z",
   "repo": "Keelcodes/keel",
   "metrics": [
     {
@@ -59,10 +59,10 @@
     {
       "id": "npm.downloads",
       "label": "npm weekly downloads",
-      "value": 971,
+      "value": 999,
       "source": "npm registry API",
       "frequency": "weekly",
-      "display": "971",
+      "display": "999",
       "target": "TBD"
     },
     {
@@ -186,39 +186,39 @@
   "packages": [
     {
       "name": "@keelcodes/adapters",
-      "weeklyDownloads": 232
+      "weeklyDownloads": 238
     },
     {
       "name": "@keelcodes/cli",
-      "weeklyDownloads": 19
+      "weeklyDownloads": 23
     },
     {
       "name": "@keelcodes/conformance",
-      "weeklyDownloads": 18
-    },
-    {
-      "name": "@keelcodes/manifest",
-      "weeklyDownloads": 55
-    },
-    {
-      "name": "@keelcodes/mcp",
-      "weeklyDownloads": 523
-    },
-    {
-      "name": "@keelcodes/migrate",
       "weeklyDownloads": 19
     },
     {
+      "name": "@keelcodes/manifest",
+      "weeklyDownloads": 56
+    },
+    {
+      "name": "@keelcodes/mcp",
+      "weeklyDownloads": 533
+    },
+    {
+      "name": "@keelcodes/migrate",
+      "weeklyDownloads": 20
+    },
+    {
       "name": "@keelcodes/policy",
-      "weeklyDownloads": 60
+      "weeklyDownloads": 61
     },
     {
       "name": "@keelcodes/self-host",
-      "weeklyDownloads": 29
+      "weeklyDownloads": 31
     },
     {
       "name": "@keelcodes/settlement",
-      "weeklyDownloads": 16
+      "weeklyDownloads": 18
     }
   ],
   "chains": [
@@ -257,7 +257,7 @@
       "id": 1,
       "key": "eth",
       "name": "ETH",
-      "cursorBlock": 26159344,
+      "cursorBlock": 26166526,
       "accounts": [
         "0x24ca01a120bb6a81bb859d7f26583e7d835792bb",
         "0x4d123241a467e3f12f9d4a17be3304210c115c98",
@@ -288,7 +288,7 @@
     {
       "file": "npm-downloads.svg",
       "label": "npm / week",
-      "value": "971",
+      "value": "999",
       "color": "#007ec6"
     }
   ]
