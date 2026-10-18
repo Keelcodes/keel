@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-17T03:43:31.701Z",
+  "generatedAt": "2026-10-18T03:43:13.483Z",
   "repo": "Keelcodes/keel",
   "metrics": [
     {
@@ -59,10 +59,10 @@
     {
       "id": "npm.downloads",
       "label": "npm weekly downloads",
-      "value": 1068,
+      "value": 240,
       "source": "npm registry API",
       "frequency": "weekly",
-      "display": "1.1k",
+      "display": "240",
       "target": "TBD"
     },
     {
@@ -167,58 +167,58 @@
     {
       "id": "chain.userops.eth",
       "label": "UserOps (ETH)",
-      "value": 19,
+      "value": 24,
       "source": "onchain · EntryPoint UserOperationEvent · ETH",
       "frequency": "daily",
-      "display": "19",
+      "display": "24",
       "target": "TBD"
     },
     {
       "id": "chain.session_installs.eth",
       "label": "Session installs (ETH)",
-      "value": 9,
+      "value": 10,
       "source": "onchain · KeelPolicyHook SessionInstalled · ETH",
       "frequency": "daily",
-      "display": "9",
+      "display": "10",
       "target": "TBD"
     }
   ],
   "packages": [
     {
       "name": "@keelcodes/adapters",
-      "weeklyDownloads": 246
+      "weeklyDownloads": 8
     },
     {
       "name": "@keelcodes/cli",
-      "weeklyDownloads": 27
+      "weeklyDownloads": 5
     },
     {
       "name": "@keelcodes/conformance",
-      "weeklyDownloads": 24
+      "weeklyDownloads": 8
     },
     {
       "name": "@keelcodes/manifest",
-      "weeklyDownloads": 62
+      "weeklyDownloads": 9
     },
     {
       "name": "@keelcodes/mcp",
-      "weeklyDownloads": 550
+      "weeklyDownloads": 169
     },
     {
       "name": "@keelcodes/migrate",
-      "weeklyDownloads": 26
+      "weeklyDownloads": 10
     },
     {
       "name": "@keelcodes/policy",
-      "weeklyDownloads": 66
+      "weeklyDownloads": 11
     },
     {
       "name": "@keelcodes/self-host",
-      "weeklyDownloads": 40
+      "weeklyDownloads": 10
     },
     {
       "name": "@keelcodes/settlement",
-      "weeklyDownloads": 27
+      "weeklyDownloads": 10
     }
   ],
   "chains": [
@@ -257,7 +257,7 @@
       "id": 1,
       "key": "eth",
       "name": "ETH",
-      "cursorBlock": 26209648,
+      "cursorBlock": 26216820,
       "accounts": [
         "0x24ca01a120bb6a81bb859d7f26583e7d835792bb",
         "0x4b504892aeaea7ec60ea974a0f4f0d5d48bb328e",
@@ -269,8 +269,8 @@
         "0xd9b089858243f2d8222190e2b748977938ffdc3e",
         "0xe834b45662940e40a5e5587bb6e5b2b93116f47b"
       ],
-      "installs": 9,
-      "userops": 19
+      "installs": 10,
+      "userops": 24
     }
   ],
   "pending": [],
@@ -290,7 +290,7 @@
     {
       "file": "npm-downloads.svg",
       "label": "npm / week",
-      "value": "1.1k",
+      "value": "240",
       "color": "#007ec6"
     }
   ]
