@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-22T03:46:31.164Z",
+  "generatedAt": "2026-10-23T03:45:55.433Z",
   "repo": "Keelcodes/keel",
   "metrics": [
     {
@@ -158,28 +158,28 @@
     {
       "id": "chain.accounts.eth",
       "label": "Keel accounts (ETH)",
-      "value": 9,
+      "value": 10,
       "source": "onchain · KeelPolicyHook SessionInstalled · ETH",
       "frequency": "daily",
-      "display": "9",
+      "display": "10",
       "target": "TBD"
     },
     {
       "id": "chain.userops.eth",
       "label": "UserOps (ETH)",
-      "value": 24,
+      "value": 28,
       "source": "onchain · EntryPoint UserOperationEvent · ETH",
       "frequency": "daily",
-      "display": "24",
+      "display": "28",
       "target": "TBD"
     },
     {
       "id": "chain.session_installs.eth",
       "label": "Session installs (ETH)",
-      "value": 10,
+      "value": 11,
       "source": "onchain · KeelPolicyHook SessionInstalled · ETH",
       "frequency": "daily",
-      "display": "10",
+      "display": "11",
       "target": "TBD"
     }
   ],
@@ -257,8 +257,9 @@
       "id": 1,
       "key": "eth",
       "name": "ETH",
-      "cursorBlock": 26245545,
+      "cursorBlock": 26252713,
       "accounts": [
+        "0x17a024a6b253a7008c895721b8391f30207ab102",
         "0x24ca01a120bb6a81bb859d7f26583e7d835792bb",
         "0x4b504892aeaea7ec60ea974a0f4f0d5d48bb328e",
         "0x4d123241a467e3f12f9d4a17be3304210c115c98",
@@ -269,8 +270,8 @@
         "0xd9b089858243f2d8222190e2b748977938ffdc3e",
         "0xe834b45662940e40a5e5587bb6e5b2b93116f47b"
       ],
-      "installs": 10,
-      "userops": 24
+      "installs": 11,
+      "userops": 28
     }
   ],
   "pending": [],
