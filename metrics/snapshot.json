@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-31T03:55:03.464Z",
+  "generatedAt": "2026-11-01T03:59:52.456Z",
   "repo": "Keelcodes/keel",
   "metrics": [
     {
@@ -167,10 +167,10 @@
     {
       "id": "chain.userops.eth",
       "label": "UserOps (ETH)",
-      "value": 28,
+      "value": 30,
       "source": "onchain · EntryPoint UserOperationEvent · ETH",
       "frequency": "daily",
-      "display": "28",
+      "display": "30",
       "target": "TBD"
     },
     {
@@ -257,7 +257,7 @@
       "id": 1,
       "key": "eth",
       "name": "ETH",
-      "cursorBlock": 26310176,
+      "cursorBlock": 26317373,
       "accounts": [
         "0x17a024a6b253a7008c895721b8391f30207ab102",
         "0x24ca01a120bb6a81bb859d7f26583e7d835792bb",
@@ -271,7 +271,7 @@
         "0xe834b45662940e40a5e5587bb6e5b2b93116f47b"
       ],
       "installs": 11,
-      "userops": 28
+      "userops": 30
     }
   ],
   "pending": [],
