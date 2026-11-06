@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-05T04:04:41.579Z",
+  "generatedAt": "2026-11-06T04:02:28.645Z",
   "repo": "Keelcodes/keel",
   "metrics": [
     {
@@ -59,10 +59,10 @@
     {
       "id": "npm.downloads",
       "label": "npm weekly downloads",
-      "value": 180,
+      "value": 178,
       "source": "npm registry API",
       "frequency": "weekly",
-      "display": "180",
+      "display": "178",
       "target": "TBD"
     },
     {
@@ -186,7 +186,7 @@
   "packages": [
     {
       "name": "@keelcodes/adapters",
-      "weeklyDownloads": 33
+      "weeklyDownloads": 30
     },
     {
       "name": "@keelcodes/cli",
@@ -198,7 +198,7 @@
     },
     {
       "name": "@keelcodes/manifest",
-      "weeklyDownloads": 7
+      "weeklyDownloads": 8
     },
     {
       "name": "@keelcodes/mcp",
@@ -210,11 +210,11 @@
     },
     {
       "name": "@keelcodes/policy",
-      "weeklyDownloads": 10
+      "weeklyDownloads": 8
     },
     {
       "name": "@keelcodes/self-host",
-      "weeklyDownloads": 11
+      "weeklyDownloads": 13
     },
     {
       "name": "@keelcodes/settlement",
@@ -257,7 +257,7 @@
       "id": 1,
       "key": "eth",
       "name": "ETH",
-      "cursorBlock": 26346107,
+      "cursorBlock": 26353275,
       "accounts": [
         "0x17a024a6b253a7008c895721b8391f30207ab102",
         "0x24ca01a120bb6a81bb859d7f26583e7d835792bb",
@@ -291,7 +291,7 @@
     {
       "file": "npm-downloads.svg",
       "label": "npm / week",
-      "value": "180",
+      "value": "178",
       "color": "#007ec6"
     }
   ]
