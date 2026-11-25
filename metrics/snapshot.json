@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-24T13:44:23.106Z",
+  "generatedAt": "2026-11-25T12:57:37.566Z",
   "repo": "Keelcodes/keel",
   "metrics": [
     {
@@ -59,10 +59,10 @@
     {
       "id": "npm.downloads",
       "label": "npm weekly downloads",
-      "value": 178,
+      "value": 212,
       "source": "npm registry API",
       "frequency": "weekly",
-      "display": "178",
+      "display": "212",
       "target": "TBD"
     },
     {
@@ -186,31 +186,31 @@
   "packages": [
     {
       "name": "@keelcodes/adapters",
-      "weeklyDownloads": 29
+      "weeklyDownloads": 28
     },
     {
       "name": "@keelcodes/cli",
-      "weeklyDownloads": 12
-    },
-    {
-      "name": "@keelcodes/conformance",
-      "weeklyDownloads": 12
-    },
-    {
-      "name": "@keelcodes/manifest",
-      "weeklyDownloads": 14
-    },
-    {
-      "name": "@keelcodes/mcp",
-      "weeklyDownloads": 48
-    },
-    {
-      "name": "@keelcodes/migrate",
       "weeklyDownloads": 13
     },
     {
+      "name": "@keelcodes/conformance",
+      "weeklyDownloads": 13
+    },
+    {
+      "name": "@keelcodes/manifest",
+      "weeklyDownloads": 15
+    },
+    {
+      "name": "@keelcodes/mcp",
+      "weeklyDownloads": 77
+    },
+    {
+      "name": "@keelcodes/migrate",
+      "weeklyDownloads": 14
+    },
+    {
       "name": "@keelcodes/policy",
-      "weeklyDownloads": 20
+      "weeklyDownloads": 21
     },
     {
       "name": "@keelcodes/self-host",
@@ -218,7 +218,7 @@
     },
     {
       "name": "@keelcodes/settlement",
-      "weeklyDownloads": 5
+      "weeklyDownloads": 6
     }
   ],
   "chains": [
@@ -257,7 +257,7 @@
       "id": 1,
       "key": "eth",
       "name": "ETH",
-      "cursorBlock": 26485385,
+      "cursorBlock": 26492330,
       "accounts": [
         "0x17a024a6b253a7008c895721b8391f30207ab102",
         "0x24ca01a120bb6a81bb859d7f26583e7d835792bb",
@@ -292,7 +292,7 @@
     {
       "file": "npm-downloads.svg",
       "label": "npm / week",
-      "value": "178",
+      "value": "212",
       "color": "#007ec6"
     }
   ]
